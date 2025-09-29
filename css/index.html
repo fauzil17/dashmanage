@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script type="module" src="https://unpkg.com/cally"></script>
 
     <title>Document</title>
 </head>
@@ -14,8 +15,8 @@
       <aside class="bg-[#FFFFFF] border-r border-gray-400 shadow-sm w-64 h-screen flex flex-col justify-between">
         <div>
           <div class="flex items-center h-20 border-b border-gray-400 px-8">
-            <a class="text-teal-400 font-bold text-3xl">
-              Dash<span class="font-bold text-emerald-700 text-3xl">manage</span>
+            <a class="text-teal-400 font-bold text-2xl ml-5">
+              Dash<span class="font-bold text-emerald-700 text-2xl ">manage</span>
             </a>
           </div>
           <ul class="menu bg-[#ffff] w-full p-4 space-y-2">
@@ -60,7 +61,7 @@
         <!-- Topbar -->
   <div class="bg-[#FFFFFF] border-b border-gray-400 shadow-sm flex items-center justify-between h-20 w-full px-8" style="width:100%">
           <div class="flex items-center gap-4">
-            <span class="text-2xl font-semibold text-gray-700">Selamat datang, <span class="font-bold">Moni Roy</span></span>
+            <span class="text-xl font-semibold text-[#404040]">Selamat datang, <span class="font-semibold">Moni Roy</span></span>
           </div>
           <div class="flex items-center gap-8">
             <!-- Notifikasi Lonceng -->
@@ -101,10 +102,13 @@
                     <path stroke-linecap="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                   </svg>
                 </button>
-                <div id="calendar-popup" class="hidden absolute left-1/2 -translate-x-1/2 mt-3 w-56 bg-white border border-gray-200 rounded-lg shadow-lg p-4 z-50">
-                  <input id="calendar-input" type="date" class="w-full border border-gray-300 rounded px-2 py-1 text-gray-700" />
+                <div id="calendar-popup" class="hidden absolute left-1/2 -translate-x-1/2 mt-3 w-80 bg-white border border-gray-200 rounded-lg shadow-lg p-4 z-50">
+                  <calendar-date id="cally-calendar" class="cally bg-base-100 border border-base-300 shadow-lg rounded-box">
+                    <svg aria-label="Previous" class="fill-current size-4" slot="previous" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M15.75 19.5 8.25 12l7.5-7.5"></path></svg>
+                    <svg aria-label="Next" class="fill-current size-4" slot="next" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="m8.25 4.5 7.5 7.5-7.5 7.5"></path></svg>
+                    <calendar-month></calendar-month>
+                  </calendar-date>
                 </div>
-              </div>
             </div>
             <!-- Profile -->
             <div class="flex items-center gap-2 pl-4">
@@ -126,28 +130,32 @@
   // Toggle popup kalender saat icon kalender diklik
   const calendarBtn = document.getElementById('calendar-btn');
   const calendarPopup = document.getElementById('calendar-popup');
-  const calendarInput = document.getElementById('calendar-input');
   const calendarLabel = document.getElementById('calendar-label');
+  const callyCalendar = document.getElementById('cally-calendar');
+
+  // Set label kalender ke tanggal hari ini saat pertama kali load
+  if (calendarLabel) {
+    const today = new Date();
+    const options = { day: 'numeric', month: 'short', year: 'numeric' };
+    calendarLabel.textContent = today.toLocaleDateString('en-US', options);
+  }
 
   document.addEventListener('click', function(e) {
     if (calendarBtn && calendarBtn.contains(e.target)) {
       calendarPopup.classList.toggle('hidden');
-      if (!calendarPopup.classList.contains('hidden')) {
-        calendarInput.focus();
-      }
     } else if (calendarPopup && !calendarPopup.contains(e.target)) {
       calendarPopup.classList.add('hidden');
     }
   });
 
-  // Update label saat tanggal dipilih
-  if (calendarInput && calendarLabel) {
-    calendarInput.addEventListener('change', function() {
-      if (this.value) {
-        const date = new Date(this.value);
-        const options = { year: 'numeric', month: 'short' };
-        calendarLabel.textContent = date.toLocaleDateString('en-US', options);
-      }
+  // Tidak perlu set min date, cukup event handler saja
+  if (callyCalendar) {
+    // Update label saat tanggal dipilih
+    callyCalendar.addEventListener('change', function(e) {
+      const date = new Date(e.target.value);
+      // Tampilkan tanggal, bulan (singkat), dan tahun
+      const options = { day: 'numeric', month: 'short', year: 'numeric' };
+      calendarLabel.textContent = date.toLocaleDateString('en-US', options);
       calendarPopup.classList.add('hidden');
     });
   }
