@@ -110,16 +110,33 @@
                   </calendar-date>
                 </div>
             </div>
-            <!-- Profile -->
-            <div class="flex items-center gap-2 pl-4">
-              <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" class="w-10 h-10 rounded-full object-cover" alt="Profile" />
-              <div class="flex flex-col">
-                <span class="font-bold text-gray-800 leading-tight">Moni Roy</span>
-                <span class="text-gray-500 text-sm leading-tight">Admin</span>
-              </div>
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-              </svg>
+  <!-- Profile -->
+  <div class="flex items-center gap-2 pl-4">
+  <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" 
+       class="w-10 h-10 rounded-full" />
+
+  <div class="flex flex-col">
+    <span class="font-bold text-gray-800 leading-tight">Moni Roy</span>
+
+    <!-- Dropdown untuk Admin -->
+    <div class="dropdown dropdown-end">
+      <label tabindex="0" class="flex items-center gap-1 text-gray-500 text-sm leading-tight cursor-pointer">
+        Admin
+        <!-- Ikon panah -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none"
+             viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </label>
+      <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box shadow p-2 w-40 mt-3">
+        <li><a>Profile</a></li>
+        <li><a>Settings</a></li>
+        <li><a>Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
             </div>
           </div>
         </div>
