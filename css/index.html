@@ -11,7 +11,7 @@
 <body class="bg-[#F5FAF6]">
   <div class="flex w-full min-w-0">
       <!-- Sidebar -->
-      <aside class="bg-[#FFFFFF] border-r-1 border-[#E0E0E0] shadow-sm w-64 h-screen flex flex-col justify-between">
+      <aside class="bg-[#FFFFFF] border-r-1 border-[#E0E0E0] shadow-sm w-64  flex flex-col justify-stretch">
         <div>
           <div class="flex items-center h-20 border-b-1 border-[#E0E0E0] px-8 justify-center">
             <a class="text-[#57CCB1] font-bold text-2xl">
@@ -107,134 +107,11 @@
           </div>
         </div>
         <!-- ...existing main content... -->
-        <div class="grid grid-cols-3 gap-4 m-5">
-        <!-- Kehadiran Bulanan -->
-        <div class="card bg-base-100 shadow p-4 col-span-2">
-          <h2 class="text-lg font-bold mb-2">Kehadiran Bulanan</h2>
-          <div class="relative" style="height:340px;">
-            <canvas id="kehadiranChart" style="height:340px !important;"></canvas>
-          </div>
-          <div class="flex justify-between items-center text-[15px] text-gray-600 mt-2 px-2">
-            <span>On - time : 50%</span>
-            <span>Rata - rata keterlambatan : 5 menit</span>
-            <span>Rata - rata cuti perbulan : 2 hari</span>
-          </div>
-        </div>
+      
+       
 
 <script>
-   // Chart Kehadiran
-   new Chart(document.getElementById('kehadiranChart'), {
-     type: 'line',
-     data: {
-       labels: ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Ags"],
-       datasets: [
-         {
-           label: "Hadir",
-           data: [129, 120, 110, 125, 115, 130, 120, 118],
-           borderColor: '#3dd6bb',
-           backgroundColor: 'rgba(61,214,187,0.1)',
-           pointBackgroundColor: '#fff',
-           pointBorderColor: '#3dd6bb',
-           pointRadius: 4,
-           pointHoverRadius: 6,
-           pointBorderWidth: 2,
-           borderWidth: 2,
-           tension: 0.4,
-           fill: false,
-         },
-         {
-           label: "Tidak hadir",
-           data: [5, 8, 12, 6, 10, 7, 9, 6],
-           borderColor: '#ff3b3b',
-           backgroundColor: 'rgba(255,59,59,0.1)',
-           pointBackgroundColor: '#fff',
-           pointBorderColor: '#ff3b3b',
-           pointRadius: 4,
-           pointHoverRadius: 6,
-           pointBorderWidth: 2,
-           borderWidth: 2,
-           tension: 0.4,
-           fill: false,
-         },
-         {
-           label: "Cuti",
-           data: [2, 4, 3, 2, 7, 5, 8, 9],
-           borderColor: '#ffb800',
-           backgroundColor: 'rgba(255,184,0,0.1)',
-           pointBackgroundColor: '#fff',
-           pointBorderColor: '#ffb800',
-           pointRadius: 4,
-           pointHoverRadius: 6,
-           pointBorderWidth: 2,
-           borderWidth: 2,
-           tension: 0.4,
-           fill: false,
-         }
-       ]
-     },
-     options: {
-       plugins: {
-         legend: {
-           display: true,
-           position: 'bottom',
-           labels: {
-             usePointStyle: true,
-             pointStyle: 'circle',
-             font: {
-               size: 14,
-               family: 'inherit',
-               weight: 'bold',
-             },
-             color: '#3d3d3d',
-             padding: 20,
-             boxWidth: 6,
-             boxHeight: 6,
-             boxPadding: 10,
-           }
-         },
-       },
-       scales: {
-         x: {
-           grid: {
-             color: '#e5f5f0',
-             borderColor: '#e5f5f0',
-             drawBorder: false,
-           },
-           ticks: {
-             color: '#3d3d3d',
-             font: {
-               size: 14,
-               family: 'inherit',
-             }
-           }
-         },
-         y: {
-           grid: {
-             color: '#e5f5f0',
-             borderColor: '#e5f5f0',
-             drawBorder: false,
-           },
-           ticks: {
-             color: '#3d3d3d',
-             font: {
-               size: 14,
-               family: 'inherit',
-             }
-           }
-         }
-       },
-       layout: {
-         padding: {
-           left: 10,
-           right: 10,
-           top: 10,
-           bottom: 10
-         }
-       },
-       responsive: true,
-       maintainAspectRatio: false,
-     }
-   });
+ 
   // Lucide icon init
   lucide.createIcons();
   // Sidebar menu active state
