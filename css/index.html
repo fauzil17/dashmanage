@@ -4,6 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet">
+    <style>
+      .menu a {
+        transition: background 0.2s, color 0.2s;
+      }
+      .menu a.active-menu {
+        background: #D5F2EB !important;
+        color: #57CCB1 !important;
+      }
+      .menu a:hover {
+        background: #D5F2EB !important;
+        color: #57CCB1 !important;
+      }
+    </style>
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <script type="module" src="https://unpkg.com/cally"></script>
 
@@ -23,20 +36,20 @@
           <ul class="menu bg-[#ffff] w-full p-0 m-0">
             <li class="py-4 menu-title text-[#A0BDB1] border-[#E0E0E0] border-1 m-0 text-xs">MAIN</li>
             <li class="text-lg font-medium m-0 p-0">
-              <a class="flex items-center gap-3 px-4 py-3 border border-[#E0E0E0] rounded-none m-0 p-0 justify-start active-menu" id="menu-dashboard">
+              <a href="index.html" class="flex items-center gap-3 px-4 py-3 border border-[#E0E0E0] rounded-none m-0 p-0 justify-start active-menu" id="menu-dashboard">
                 <i data-lucide="layout-dashboard" class="h-5 w-5 text-[57CCB1]"></i>
                 <span class="text-sm font-semibold">Dashboard</span>
               </a>
             </li>
             <li class="py-4 menu-title text-[#A0BDB1] border-[#E0E0E0] border-1 m-0 text-xs">MANAGE</li>
             <li class="text-lg font-medium m-0 p-0">
-              <a class="flex items-center gap-3 px-4 py-3 border border-[#E0E0E0] rounded-none m-0 p-0 justify-start" id="menu-pegawai">
+              <a href="/pegawai" class="flex items-center gap-3 px-4 py-3 border border-[#E0E0E0] rounded-none m-0 p-0 justify-start" id="menu-pegawai">
                 <i data-lucide="user" class="h-5 w-5 "></i>
                 <span class="text-sm">Pegawai Baru & Resign</span>
               </a>
             </li>
             <li class="text-lg font-medium mt-0">
-              <a class="flex items-center gap-3 px-4 py-3 border border-[#E0E0E0] rounded-none m-0 p-0 justify-start" id="menu-laporan">
+              <a href="/laporan" class="flex items-center gap-3 px-4 py-3 border border-[#E0E0E0] rounded-none m-0 p-0 justify-start" id="menu-laporan">
                 <i data-lucide="clipboard-list" class="h-5 w-5"></i>
                 <span class="text-sm">Laporan Kinerja & Lembur</span>
               </a>
@@ -137,29 +150,7 @@
   // Lucide icon init
   lucide.createIcons();
   // Sidebar menu active state
-  function setActiveMenu(menuId) {
-    document.querySelectorAll('.menu a').forEach(function(a) {
-      a.classList.remove('bg-[#b8eadd]', 'text-[#217c6a]', 'active-menu', 'bg-[#D5F2EB]', 'text-[#57CCB1]', 'hover:bg-[#D5F2EB]', 'hover:text-[#57CCB1]', 'bg-white', 'hover:bg-[#d1f5ee]', 'hover:text-[#217c6a]');
-      a.classList.add('bg-white', 'hover:bg-[#D5F2EB]', 'hover:text-[#57CCB1]');
-    });
-    const active = document.getElementById(menuId);
-    if (active) {
-      active.classList.add('bg-[#D5F2EB]', 'text-[#57CCB1]', 'active-menu');
-      active.classList.remove('bg-white', 'hover:bg-[#D5F2EB]', 'hover:text-[#57CCB1]', 'hover:bg-[#d1f5ee]', 'hover:text-[#217c6a]');
-    }
-  }
-  // Set initial active menu (Dashboard)
-  setActiveMenu('menu-dashboard');
-  // Set active menu on click
-  document.getElementById('menu-dashboard').addEventListener('click', function() {
-    setActiveMenu('menu-dashboard');
-  });
-  document.getElementById('menu-pegawai').addEventListener('click', function() {
-    setActiveMenu('menu-pegawai');
-  });
-  document.getElementById('menu-laporan').addEventListener('click', function() {
-    setActiveMenu('menu-laporan');
-  });
+  // Navigation is now handled by anchor hrefs for simplicity.
   // Toggle popup kalender saat icon kalender diklik
   const calendarBtn = document.getElementById('calendar-btn');
   const calendarPopup = document.getElementById('calendar-popup');
