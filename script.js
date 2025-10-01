@@ -1,5 +1,4 @@
-
-    //chart pegawai
+ //chart pegawai
      new Chart(document.getElementById('pegawaiChart'), {
     type: 'line',
     data: {
