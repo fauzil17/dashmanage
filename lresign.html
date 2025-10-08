@@ -7,6 +7,8 @@
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <script type="module" src="https://unpkg.com/cally"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  
     <title>Document</title>
 </head>
 <body class="bg-[#F5FAF6]">
@@ -107,56 +109,210 @@
 
     <!-- Dropdown untuk Admin -->
     <div class="dropdown dropdown-end">
-      <label tabindex="0" class="flex items-center gap-1 text-gray-500 text-sm leading-tight cursor-pointer">
-        Admin
-        <!-- Ikon panah -->
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none"
-             viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-        </svg>
-      </label>
-      <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box shadow p-2 w-40 mt-3">
-        <li><a>Profile</a></li>
-        <li><a>Settings</a></li>
-        <li><a>Logout</a></li>
+              <label tabindex="0" class="flex items-center gap-1 text-gray-500 text-sm leading-tight cursor-pointer">
+                Admin
+                <!-- Ikon panah -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none"
+                     viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </label>
+              <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box shadow p-2 w-40 mt-3">
+                <li><a>Profile</a></li>
+                <li><a>Settings</a></li>
+                <li><a>Logout</a></li>
+               </ul>
+          </div>
+        </div>
+       </div>
+      </div>
+    </div>
+  </div>
+
+
+ <h1 class="text-xl font-bold text-[#2E7363] mb-6 ml-5 mt-5">Pegawai Baru & Resign</h1>
+
+  <div class="grid grid-cols-12 grid-rows-6 gap-4 ml-5 mr-5 mb-5">
+    <!-- 1 -->
+    <div class="card bg-white shadow p-4 col-span-3 row-span-1">
+      <h2 class="text-[#2D7263] text-base font-bold">Pegawai Baru (Bulan Ini)</h2>
+      <p class="text-3xl font-bold text-emerald-600 mt-5">8<span class="text-lg align-top text-gray-400">+3</span></p>
+      <p class="text-xs text-gray-500 mt-7">Sumber: Job Portal 40%, Referral 35% (lihat donut)</p>
+    </div>
+
+    <!-- 2 -->
+    <div class="card bg-white shadow p-4 col-span-3 row-span-1 col-start-4">
+      <h2 class="text-[#2D7263] text-base font-bold">Pegawai Resign (Bulan Ini)</h2>
+      <p class="text-3xl font-bold text-rose-500 mt-5">2</p>
+      <p class="text-xs text-gray-500 mt-7">Alasan Utama: Pindah Kerja (lihat pie)</p>
+    </div>
+
+    <!-- 3 -->
+      
+      <div class="card bg-white shadow p-4 col-span-3 row-span-2 col-start-1 row-start-2 flex flex-col justify-between rounded-xl">
+        <h2 class="text-[#2D7263] text-base font-bold mb-2">Alasan Resign</h2>
+        <div class="flex justify-center items-center h-44 ">
+          <canvas id="alasanResignChart"></canvas>
+        </div>
+
+        <!-- Legend bawah -->
+         <div class="flex justify-center gap-6 text-xs text-gray-600 mt-4">
+          <div class="flex items-center gap-1">
+            <span
+              class="w-2 h-2 rounded-full"
+              style="background-color: #7fe9de"
+            ></span>
+            <span>Studi</span>
+          </div>
+          <div class="flex items-center gap-1">
+            <span
+              class="w-2 h-2 rounded-full"
+              style="background-color: #49b3a6"
+            ></span>
+            <span>Pribadi</span>
+          </div>
+          <div class="flex items-center gap-1">
+            <span
+              class="w-2 h-2 rounded-full"
+              style="background-color: #276e63"
+            ></span>
+            <span>Kontrak habis</span>
+          </div>
+        </div>
+      </div>
+
+    <!-- 4 -->
+       
+     <div class="card bg-white shadow p-4 col-span-3 row-span-2 col-start-4 row-start-2 flex flex-col justify-between rounded-xl">
+        <h2 class="text-[#2D7263] text-base font-bold mb-2">Sumber Rekrutmen</h2>
+        <div class="flex justify-center items-center h-44">
+          <canvas id="sumberRekrutmenChart"></canvas>
+        </div>
+
+        <!-- Legend bawah -->
+          <div class="flex justify-center gap-6 text-xs text-gray-600 mt-4">
+          <div class="flex items-center gap-1">
+            <span
+              class="w-2 h-2 rounded-full"
+              style="background-color: #7fe9de"
+            ></span>
+            <span>Internal</span>
+          </div>
+          <div class="flex items-center gap-1">
+            <span
+              class="w-2 h-2 rounded-full"
+              style="background-color: #49b3a6"
+            ></span>
+            <span>Job Portal</span>
+          </div>
+          <div class="flex items-center gap-1">
+            <span
+              class="w-2 h-2 rounded-full"
+              style="background-color: #276e63"
+            ></span>
+            <span>Kampus</span>
+          </div>
+        </div>
+      </div>
+
+    <!-- 5 -->
+
+     <div class="card bg-white shadow p-4 col-span-6 row-span-3 col-start-7 row-start-1">
+      <h2 class="text-[#2D7263] text-base font-bold mb-4 ">Pegawai Baru dan Resign</h2> 
+
+    <!-- Container Grafik -->
+     <div class="bg-white  p-6">
+      <canvas id="pegawaiChart" height="270"></canvas> 
+
+      <!-- Ringkasan di bawah chart -->
+       <div class="flex justify-center gap-10 mt-4 text-gray-600 text-xs relative">
+      <!-- Total Masuk -->
+         <div class="relative flex flex-col items-center">
+          <span>Total Masuk (6 bln)</span>
+          <span class="absolute top-5 text-indigo-500 font-semibold text-base">12</span>
+        </div> 
+
+       <!-- Total Resign -->
+        <div class="relative flex flex-col items-center">
+          <span>Total Resign (6 bln)</span>
+          <span class="absolute top-5 text-red-500 font-semibold text-base">6</span>
+        </div>
+
+       <!-- Tingkat Retensi -->
+         <div class="relative flex flex-col items-center">
+           <span>Tingkat Retensi</span>
+           <span class="absolute top-5 text-emerald-500 font-semibold text-base">~91%</span>
+         </div>
+      </div>
+    </div>
+  </div> 
+      
+
+    <!-- 6 -->
+    <div class="card bg-white shadow p-4 col-span-6 row-span-2 col-start-1 row-start-4">
+      <div class="bg-white ">
+         <h2 class="text-[#2D7263] text-base font-bold mb-4">Cohort Analysis (sederhana)</h2>
+
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="text-[#2D7263] text-sm font-bold border-b border-gray-400">
+                  <th class="py-2 px-4">Angkatan</th>
+                  <th class="py-2 px-4">Total</th>
+                  <th class="py-2 px-4">Bertahan</th>
+                  <th class="py-2 px-4">%Retensi</th>
+                </tr>
+              </thead>
+          
+              <tbody class="text-gray-700 text-xs">
+                <tr class="border-b border-gray-300">
+                  <td class="py-2 px-4">2021</td>
+                  <td class="py-2 px-4">40</td>
+                  <td class="py-2 px-4">23</td>
+                  <td class="py-2 px-4">80%</td>
+                </tr>
+                <tr class="border-b border-gray-300">
+                  <td class="py-2 px-4">2022</td>
+                  <td class="py-2 px-4">32</td>
+                  <td class="py-2 px-4">35</td>
+                  <td class="py-2 px-4">50%</td>
+                </tr>
+                <tr class="border-b border-gray-300">
+                  <td class="py-2 px-4">2023</td>
+                  <td class="py-2 px-4">54</td>
+                  <td class="py-2 px-4">23</td>
+                  <td class="py-2 px-4">90%</td>
+                </tr>
+                <tr class="border-b border-gray-300">
+                  <td class="py-2 px-4">2024</td>
+                  <td class="py-2 px-4">23</td>
+                  <td class="py-2 px-4">43</td>
+                  <td class="py-2 px-4">20%</td>
+                </tr>
+                <tr class="border-b border-gray-300">
+                  <td class="py-2 px-4">2025</td>
+                  <td class="py-2 px-4">23</td>
+                  <td class="py-2 px-4">77</td>
+                  <td class="py-2 px-4">23%</td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="card bg-white shadow p-4 col-span-6 row-span-2 col-start-7 row-start-4">
+      <h2 class="text-[#2D7263] text-base font-bold mb-2">Ringkasan Bulanan</h2>
+      <ul class="text-sm text-gray-700 space-y-7 mt-5">
+        <li>• Pegawai Baru: 8 (naik +3 dari bulan lalu)</li>
+        <li>• Pegawai Resign: 2</li>
+        <li>• Est. Tingkat retensi: ~91%</li>
+        <li>• Saran: Fokus retention di angkatan 2022 (retensi 83%)</li>
       </ul>
     </div>
   </div>
-</div>
 
-            </div>
-          </div>
-        </div>
-        <!-- ...existing main content... -->
-       <div class="grid grid-cols-12 grid-rows-2 gap-4 m-5">
-            <div class="card bg-white shadow p-4 col-span-8 row-span-2">
-              <h2 class="text-lg font-bold mb-2 text-black">Kehadiran Bulanan</h2>
-          <div class="relative" style="height:250px;">
-            <canvas id="kehadiranChart" style="height:340px !important;"></canvas>
-          </div>
-          <div class="flex justify-between items-center text-[12px] text-gray-600 mt-2 px-2">
-            <span>On - time : 50%</span>
-            <span>Rata - rata keterlambatan : 5 menit</span>
-            <span>Rata - rata cuti perbulan : 2 hari</span>
-          </div>
-            </div>
-            <div class="card bg-white shadow p-4 col-span-4 row-span-2 col-start-9 w-full max-w-md">
-              <h2 class="text-lg font-bold mb-2 text-center text-black">Statistik Pegawai Baru Dan Resign</h2>
-              <div class="relative flex flex-col items-center justify-center rounded-2xl bg-white px-6 py-6" style="height: 250px;">
-                <div class="mb-2 w-full flex flex-col items-center justify-center">
-                  <div id="pegawaiLegend" class="mb-8"></div>
-                  <canvas id="pegawaiChart" style="max-width: 100%; height: 240px !important;"></canvas>
-                </div>
-              </div>
-            </div>
-            <div class="card bg-white text-black shadow p-4 col-span-6 row-span-3 row-start-3">5</div>
-            <div class="card bg-white text-black shadow p-4 col-span-3 col-start-7 row-start-3">6</div>
-            <div class="card bg-white text-black shadow p-4 col-span-3 col-start-10 row-start-3">8</div>
-            <div class="card bg-white text-black shadow p-4 col-span-3 col-start-7 row-start-4">9</div>
-            <div class="card bg-white text-black shadow p-4 col-span-3 col-start-10 row-start-4">10</div>
-            <div class="card bg-white text-black shadow p-4 col-span-3 col-start-7 row-start-5">11</div>
-            <div class="card bg-white text-black shadow p-4 col-span-3 col-start-10 row-start-5">12</div>
-        </div> 
-</body>
+<script src="chart.js"></script>
 <script src="script.js"></script>
+</body>
+
 </html>

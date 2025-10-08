@@ -1,4 +1,6 @@
- //chart pegawai
+
+lucide.createIcons();
+  // chart pegawai
      new Chart(document.getElementById('pegawaiChart'), {
     type: 'line',
     data: {
@@ -198,7 +200,7 @@
      }
    });
   // Lucide icon init
-  lucide.createIcons();
+  
   // Sidebar menu active state
   // Navigation is now handled by anchor hrefs for simplicity.
   // Toggle popup kalender saat icon kalender diklik
@@ -245,4 +247,94 @@
     } else if (notifPopup && !notifPopup.contains(e.target)) {
       notifPopup.classList.add('hidden');
     }
+
+
+// lembar kedua pegawai baru dan resign
+// donat 2 alasan dan rekrut
+const ctx1 = document.getElementById("alasanResignChart").getContext("2d");
+      new Chart(ctx1, {
+        type: "doughnut",
+        data: {
+          labels: ["Studi", "Pribadi", "Kontrak habis"],
+          datasets: [
+            {
+              data: [30, 45, 25],
+              backgroundColor: ["#7FE9DE", "#49B3A6", "#276E63"],
+              hoverOffset: 10,
+            },
+          ],
+        },
+        options: {
+          plugins: {
+            tooltip: {
+              backgroundColor: "#2D7263",
+              titleColor: "#fff",
+              bodyColor: "#fff",
+              displayColors: false,
+              callbacks: {
+                label: function (context) {
+                  switch (context.label) {
+                    case "Studi":
+                      return "Melanjutkan pendidikan (Studi)";
+                    case "Pribadi":
+                      return "Alasan pribadi atau keluarga";
+                    case "Kontrak habis":
+                      return "Masa kontrak kerja telah berakhir";
+                    default:
+                      return context.label;
+                  }
+                },
+              },
+            },
+            legend: { display: false },
+          },
+          cutout: "70%",
+        },
+      });
+
+      // ---------- Donut Chart 2 ----------
+      const ctx2 = document
+        .getElementById("sumberRekrutmenChart")
+        .getContext("2d");
+      new Chart(ctx2, {
+        type: "doughnut",
+        data: {
+          labels: ["Internal", "Job Portal", "Kampus"],
+          datasets: [
+            {
+              data: [40, 35, 25],
+              backgroundColor: ["#7FE9DE", "#49B3A6", "#276E63"],
+              hoverOffset: 10,
+            },
+          ],
+        },
+        options: {
+          plugins: {
+            tooltip: {
+              backgroundColor: "#2D7263",
+              titleColor: "#fff",
+              bodyColor: "#fff",
+              displayColors: false,
+              callbacks: {
+                label: function (context) {
+                  switch (context.label) {
+                    case "Internal":
+                      return "Promosi dari dalam perusahaan";
+                    case "Job Portal":
+                      return "Rekrutmen dari situs lowongan kerja";
+                    case "Kampus":
+                      return "Rekrutmen melalui universitas";
+                    default:
+                      return context.label;
+                  }
+                },
+              },
+            },
+            legend: { display: false },
+          },
+          cutout: "70%",
+        },
+      });
+
+
   });
