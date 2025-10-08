@@ -247,7 +247,7 @@ lucide.createIcons();
     } else if (notifPopup && !notifPopup.contains(e.target)) {
       notifPopup.classList.add('hidden');
     }
-
+  });
 
 // lembar kedua pegawai baru dan resign
 // donat 2 alasan dan rekrut
@@ -337,4 +337,3 @@ const ctx1 = document.getElementById("alasanResignChart").getContext("2d");
       });
 
 
-  });
