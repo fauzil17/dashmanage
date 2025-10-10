@@ -1,3 +1,37 @@
+// === MENU ACTIVE HANDLER ===
+document.addEventListener("DOMContentLoaded", () => {
+  const currentPage = window.location.pathname.split("/").pop();
+
+  // Ambil semua elemen menu di sidebar
+  const menuLinks = document.querySelectorAll("aside ul.menu a");
+
+  menuLinks.forEach(link => {
+    const linkPage = link.getAttribute("href");
+
+    // Hapus semua warna sebelumnya (biar ga bentrok)
+    link.classList.remove("bg-[#D5F2EB]", "text-[#57CCB1]", "text-[#737374]");
+    link.classList.add("text-[#737374]"); // default
+
+    // Kalau link sesuai halaman aktif
+    if (linkPage === currentPage) {
+      link.classList.add("bg-[#D5F2EB]", "text-[#57CCB1]");
+      link.classList.remove("text-[#737374]");
+    }
+
+    // Ganti juga warna ikon di dalamnya biar seragam
+    const icon = link.querySelector("i");
+    if (icon) {
+      icon.classList.remove("text-[#57CCB1]");
+      if (linkPage === currentPage) {
+        icon.classList.add("text-[#57CCB1]");
+      } else {
+        icon.classList.add("text-[#737374]");
+      }
+    }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
 lucide.createIcons();
 
 const calendarBtn = document.getElementById('calendar-btn');
@@ -38,9 +72,12 @@ const notifBtn = document.getElementById('notif-btn');
     }
   });
 
+
 // Chart Kehadiran
-new Chart(document.getElementById('kehadiranChart'), {
-  type: 'line',
+const kehadiran = document.getElementById('kehadiranChart');
+if (kehadiran) {
+  new Chart(kehadiran, { 
+    type: 'line',
   data: {
     labels: ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Ags"],
     datasets: [
@@ -150,11 +187,14 @@ new Chart(document.getElementById('kehadiranChart'), {
     responsive: true,
     maintainAspectRatio: false,
   }
-});
+   });
+}
 
 //chart pegawai
-new Chart(document.getElementById('pegawaiChart'), {
-  type: 'line',
+const pegawai = document.getElementById('pegawaiChart');
+if (pegawai) {
+  new Chart(pegawai, { 
+    type: 'line',
   data: {
     labels: ["Januari", "Februari", "Maret"],
     datasets: [
@@ -238,10 +278,12 @@ new Chart(document.getElementById('pegawaiChart'), {
       }
     }
   }
-});
-// Chart Produktivitas per Divisi
-new Chart(document.getElementById('produktivitasChart'), {
-  type: 'bar',
+   });
+}
+const produktivitas = document.getElementById('produktivitasChart');
+if (produktivitas) {
+  new Chart(produktivitas, { 
+    type: 'bar',
   data: {
     labels: ['IT', 'HR', 'Sales', 'OPS'],
     datasets: [
@@ -316,8 +358,126 @@ new Chart(document.getElementById('produktivitasChart'), {
       },
     },
   },
-});
+   });
+}
 
+
+
+
+// Chart Kinerja
+const kinerja = document.getElementById('kinerChart');
+if (kinerja) {
+  new Chart(kinerja, { 
+     type: 'line',
+      data: {
+        labels: ['2021', '2022', '2023', '2024', '2025'],
+        datasets: [
+          {
+            label: 'HR',
+            data: [80, 85, 82, 88, 90],
+            borderColor: '#57CCB1',
+            backgroundColor: 'rgba(87, 204, 177, 0.1)',
+            tension: 0.4,
+            fill: true
+          },
+          {
+            label: 'CS',
+            data: [75, 82, 78, 85, 88],
+            borderColor: '#2E7363',
+            backgroundColor: 'rgba(46, 115, 99, 0.1)',
+            tension: 0.4,
+            fill: true
+          },
+          {
+            label: 'QA',
+            data: [85, 88, 84, 90, 92],
+            borderColor: '#3dd6bb',
+            backgroundColor: 'rgba(61, 214, 187, 0.1)',
+            tension: 0.4,
+            fill: true
+          },
+          {
+            label: 'SA',
+            data: [78, 80, 76, 82, 85],
+            borderColor: '#217c6a',
+            backgroundColor: 'rgba(33, 124, 106, 0.1)',
+            tension: 0.4,
+            fill: true
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            position: 'top',
+          },
+          tooltip: {
+            mode: 'index',
+            intersect: false
+          }
+        },
+        scales: {
+          y: {
+            min: 70,
+            max: 100,
+            ticks: {
+              callback: function(value) {
+                return value + '%';
+              }
+            }
+          }
+        }
+      }
+   });
+}
+  
+
+    // Chart Produktivitas
+    const produk = document.getElementById('produkChart');
+    if (produk) {
+      new Chart(produk, { 
+        type: 'bar',
+      data: {
+        labels: ['Finished', 'Handling', 'Behöps', 'Utbildnings', 'Installation'],
+        datasets: [{
+          label: 'Produktivitas',
+          data: [80, 60, 45, 70, 85],
+          backgroundColor: [
+            '#57CCB1',
+            '#3dd6bb',
+            '#2E7363',
+            '#217c6a',
+            '#A0BDB1'
+          ],
+          borderWidth: 0,
+          borderRadius: 4
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display: false
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 100,
+            ticks: {
+              callback: function(value) {
+                return value + '%';
+              }
+            }
+          }
+        }
+      }
+       });
+}
+});   
 function createMiniDonut(id, color, value) {
   new Chart(document.getElementById(id), {
     type: 'doughnut',
@@ -349,4 +509,3 @@ createMiniDonut('chartIzin', '#14b8a6', 30);
 createMiniDonut('chartCuti', '#14b8a6', 25);
 createMiniDonut('chartPegawaiBaru', '#14b8a6', 15);
 createMiniDonut('chartKontrak', '#14b8a6', 40);
-

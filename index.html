@@ -27,9 +27,9 @@
           <li class="font-medium py-4 menu-title text-[#A0BDB1] border-b border-[#E0E0E0] text-[10px]">MAIN</li>
           <li>
             <a href="index.html"
-               class="flex items-center gap-3 px-4 py-3 border border-[#E0E0E0] bg-[#D5F2EB] text-[#57CCB1] hover:bg-[#D5F2EB] hover:text-[#57CCB1] transition-colors"
-               id="menu-dashboard">
-              <i data-lucide="layout-dashboard" class="h-5 w-5 text-[#57CCB1]"></i>
+              class="flex items-center gap-3 px-4 py-3 border border-[#E0E0E0] text-[#737374] hover:bg-[#D5F2EB] hover:text-[#57CCB1] transition-colors"
+              id="menu-dashboard">
+              <i data-lucide="layout-dashboard" class="h-5 w-5"></i>
               <span class="text-sm font-semibold">Dashboard</span>
             </a>
           </li>
@@ -93,6 +93,14 @@
                 <rect x="7" y="12" width="2" height="2" rx="1" fill="#3dd6bb"/>
                 <rect x="11" y="12" width="2" height="2" rx="1" fill="#3dd6bb"/>
                 <rect x="15" y="12" width="2" height="2" rx="1" fill="#3dd6bb"/>
+                <rect x="7" y="16" width="2" height="2" rx="1" fill="#3dd6bb"/>
+                <rect x="11" y="16" width="2" height="2" rx="1" fill="#3dd6bb"/>
+                <rect x="15" y="16" width="2" height="2" rx="1" fill="#3dd6bb"/>
+                <rect x="7" y="20" width="2" height="2" rx="1" fill="#3dd6bb"/>
+                <rect x="11" y="20" width="2" height="2" rx="1" fill="#3dd6bb"/>
+                <rect x="15" y="20" width="2" height="2" rx="1" fill="#3dd6bb"/>
+                <rect x="7" y="5" width="0.5" height="3" rx="0.25" fill="#fff"/>
+                <rect x="16.5" y="5" width="0.5" height="3" rx="0.25" fill="#fff"/>
               </svg>
               <span id="calendar-label" class="text-gray-700 font-semibold text-sm ml-2">Sep 2025</span>
               <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -134,109 +142,10 @@
 
       <!-- Main Content -->
       <main class="grid grid-cols-12 auto-rows-min gap-4 m-5">
-        <!-- Chart Kehadiran -->
-        <div class=" bg-white shadow p-4 col-span-8 rounded-xl">
-          <h2 class="text-base font-bold mb-4 text-[#2D7263] pl-3">Kehadiran Bulanan</h2>
-          <div class="flex justify-between items-center relative h-[250px] m-5 ">
-            <canvas id="kehadiranChart" ></canvas>
-          </div>
-          <div class="flex justify-between items-center text-xs text-gray-600 mt-2 px-2">
-            <span>On-time : 50%</span>
-            <span>Rata-rata keterlambatan : 5 menit</span>
-            <span>Rata-rata cuti per bulan : 2 hari</span>
-          </div>
-        </div>
-
-        <!-- Statistik Pegawai -->
-        <div class="bg-white shadow p-4 col-span-4 rounded-xl flex flex-col justify-between">
-          <h2 class="text-base text-[#2D7263] font-bold mb-5 pl-4 ">Statistik Pegawai Baru dan <br> Resign</h2>
-          <div class="flex-1 relative  !w-[250px] justify-center items-center ml-4">
-            <canvas id="pegawaiChart" class="absolute inset-0 h-full"></canvas>
-          </div>
-          <div id="pegawaiLegend" class="text-center"></div>
-        </div>
-
-
-        <!-- Cards Lain -->
-        <div class=" bg-white shadow p-4 col-span-6 rounded-xl">
-          <h2 class="text-base font-bold mb-2 text-[#2D7263]">Produktivitas per devisi </h2>
-          <div class="relative !h-[180px]">
-            <canvas id="produktivitasChart"></canvas>
-          </div>
-        </div>
-
-        <div class="grid grid-cols-2 gap-4 col-span-6 !h-[250px] ">
-        <div class=" bg-white shadow flex items-center gap-3 p-3 rounded-2xl h-[70px]">
-          <div class="relative w-[45px] h-[45px] shrink-0">
-            <canvas id="chartTotalPegawai" class="!w-[45px] !h-[45px]"></canvas>
-            <span class="absolute inset-0 flex items-center justify-center font-bold text-gray-900 text-xs">129</span>
-          </div>
-          <div class="flex flex-col leading-tight">
-            <p class="text-[10px] text-[#82C9B2] font-medium">+5 bulan ini</p>
-            <h3 class="text-[12px] font-semibold text-gray-900">Total Pegawai</h3>
-          </div>
-        </div>
-          <div class=" bg-white shadow flex items-center gap-3 p-3 rounded-2xl h-[70px]">
-            <div class="relative w-[45px] h-[45px] shrink-0">
-            
-              <canvas id="chartHadir"></canvas>
-              <span class="absolute inset-0 flex items-center justify-center font-bold text-gray-900 text-xs">76</span>
-            </div>
-            <div class="flex flex-col leading-tight">
-              <p class="text-[10px] text-[#82C9B2] font-medium">50% on-time</p>
-              <h3 class="text-[12px] font-semibold text-gray-900">Hadir Hari Ini</h3>
-            </div>
-          </div>
-        
-          <div class=" bg-white shadow flex items-center gap-3 p-3 rounded-2xl h-[70px]">
-            <div class="relative w-[45px] h-[45px] shrink-0">
-              <canvas id="chartIzin"></canvas>
-              <span class="absolute inset-0 flex items-center justify-center font-bold text-gray-900 text-xs">10</span>
-            </div>
-            <div class="flex flex-col leading-tight">
-              <p class="text-[10px] text-[#82C9B2] font-medium">Beban shift</p>
-              <h3 class="text-[12px] font-semibold text-gray-900">Izin / Sakit</h3>
-            </div>
-          </div>
-        
-          <div class=" bg-white shadow flex items-center gap-3 p-3 rounded-2xl h-[70px]">
-            <div class="relative w-[45px] h-[45px] shrink-0">
-              <canvas id="chartCuti"></canvas>
-              <span class="absolute inset-0 flex items-center justify-center font-bold text-gray-900 text-xs">8</span>
-            </div>
-            <div class="flex flex-col leading-tight">
-              <p class="text-[10px] text-[#82C9B2] font-medium">3 minggu ini</p>
-              <h3 class="text-[12px] font-semibold text-gray-900">Cuti Aktif</h3>
-            </div>
-          </div>
-        
-          <div class=" bg-white shadow flex items-center gap-3 p-3 rounded-2xl h-[70px]">
-            <div class="relative w-[45px] h-[45px] shrink-0">
-              <canvas id="chartPegawaiBaru"></canvas>
-              <span class="absolute inset-0 flex items-center justify-center font-bold text-gray-900 text-xs">5</span>
-            </div>
-            <div class="flex flex-col leading-tight">
-              <p class="text-[10px] text-[#82C9B2] font-medium">3 on-boarding</p>
-              <h3 class="text-[12px] font-semibold text-gray-900">Pegawai Baru</h3>
-            </div>
-          </div>
-        
-          <div class=" bg-white shadow flex items-center gap-3 p-3 rounded-2xl h-[70px]">
-            <div class="relative w-[45px] h-[45px] shrink-0">
-              <canvas id="chartKontrak"></canvas>
-              <span class="absolute inset-0 flex items-center justify-center font-bold text-gray-900 text-xs">10</span>
-            </div>
-            <div class="flex flex-col leading-tight">
-              <p class="text-[10px] text-[#82C9B2] font-medium">Butuh review</p>
-              <h3 class="text-[12px] font-semibold text-gray-900">Kontrak Habis</h3>
-            </div>
-          </div>
-        
-        </div>
-
+      
       </main>
     </div>
   </div>
-  <script src="script.js"></script>
 </body>
+<script src="script.js"></script>
 </html>

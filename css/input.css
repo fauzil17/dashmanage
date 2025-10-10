@@ -6,3 +6,7 @@ body {
 }
 @import "tailwindcss";
 @plugin "daisyui";
+.menu a:active,
+.menu a:focus {
+  @apply bg-[#D5F2EB] text-[#57CCB1];
+}
