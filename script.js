@@ -251,89 +251,103 @@ lucide.createIcons();
 
 // lembar kedua pegawai baru dan resign
 // donat 2 alasan dan rekrut
-const ctx1 = document.getElementById("alasanResignChart").getContext("2d");
-      new Chart(ctx1, {
+   // Donut Chart: Alasan Resign
+      const ctxResign = document.getElementById("alasanResignChart").getContext("2d");
+      new Chart(ctxResign, {
         type: "doughnut",
         data: {
           labels: ["Studi", "Pribadi", "Kontrak habis"],
           datasets: [
             {
-              data: [30, 45, 25],
-              backgroundColor: ["#7FE9DE", "#49B3A6", "#276E63"],
-              hoverOffset: 10,
+              data: [25, 40, 35],
+              backgroundColor: ["#B2F7CF", "#54CBB1", "#2D7263"],
+              borderWidth: 0,
+              cutout: "65%",
             },
           ],
         },
         options: {
           plugins: {
-            tooltip: {
-              backgroundColor: "#2D7263",
-              titleColor: "#fff",
-              bodyColor: "#fff",
-              displayColors: false,
-              callbacks: {
-                label: function (context) {
-                  switch (context.label) {
-                    case "Studi":
-                      return "Melanjutkan pendidikan (Studi)";
-                    case "Pribadi":
-                      return "Alasan pribadi atau keluarga";
-                    case "Kontrak habis":
-                      return "Masa kontrak kerja telah berakhir";
-                    default:
-                      return context.label;
-                  }
-                },
-              },
-            },
             legend: { display: false },
           },
-          cutout: "70%",
+          responsive: true,
         },
       });
 
-      // ---------- Donut Chart 2 ----------
-      const ctx2 = document
-        .getElementById("sumberRekrutmenChart")
-        .getContext("2d");
-      new Chart(ctx2, {
+      // Donut Chart: Sumber Rekrutmen
+      const ctxRekrut = document.getElementById("sumberRekrutmenChart").getContext("2d");
+      new Chart(ctxRekrut, {
         type: "doughnut",
         data: {
           labels: ["Internal", "Job Portal", "Kampus"],
           datasets: [
             {
-              data: [40, 35, 25],
-              backgroundColor: ["#7FE9DE", "#49B3A6", "#276E63"],
-              hoverOffset: 10,
+              data: [30, 45, 25],
+              backgroundColor: ["#B2F7CF", "#54CBB1", "#2D7263"],
+              borderWidth: 0,
+              cutout: "65%",
             },
           ],
         },
         options: {
           plugins: {
-            tooltip: {
-              backgroundColor: "#2D7263",
-              titleColor: "#fff",
-              bodyColor: "#fff",
-              displayColors: false,
-              callbacks: {
-                label: function (context) {
-                  switch (context.label) {
-                    case "Internal":
-                      return "Promosi dari dalam perusahaan";
-                    case "Job Portal":
-                      return "Rekrutmen dari situs lowongan kerja";
-                    case "Kampus":
-                      return "Rekrutmen melalui universitas";
-                    default:
-                      return context.label;
-                  }
-                },
-              },
-            },
             legend: { display: false },
           },
-          cutout: "70%",
+          responsive: true,
         },
       });
 
+      // diagram batang
+      const ctx = document.getElementById("pegawaiChart").getContext("2d");
+      new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: ["Jan", "Feb", "Mar", "Apr", "Mei"],
+          datasets: [
+            {
+              label: "Pegawai Baru",
+              data: [3, 0, 2, 0, 0],
+              backgroundColor: "#2D7263",
+              borderRadius: 6,
+              barThickness: 25,
+            },
+            {
+              label: "Pegawai Resign",
+              data: [2, 0, 0, 0, 0],
+              backgroundColor: "#E87171",
+              borderRadius: 6,
+              barThickness: 25,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+          },
+          scales: {
+            x: {
+              grid: { display: false },
+              ticks: {
+                color: "#555",
+                font: { size: 12 },
+              },
+            },
+            y: {
+              beginAtZero: true,
+              ticks: {
+                stepSize: 3,
+                color: "#555",
+                font: { size: 12 },
+              },
+              grid: {
+                color: "#eee",
+                borderDash: [4, 4],
+              },
+            },
+          },
+        },
+      });
 
+ 

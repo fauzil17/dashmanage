@@ -146,108 +146,141 @@
     </div>
 
     <!-- 3 -->
-      
       <div class="card bg-white shadow p-4 col-span-3 row-span-2 col-start-1 row-start-2 flex flex-col justify-between rounded-xl">
-        <h2 class="text-[#2D7263] text-base font-bold mb-2">Alasan Resign</h2>
-        <div class="flex justify-center items-center h-44 ">
-          <canvas id="alasanResignChart"></canvas>
-        </div>
+              <h2 class="text-[#2D7263] text-base font-bold mb-2">Alasan Resign</h2>
+              <div class="flex justify-center items-center h-44">
+                <canvas id="alasanResignChart"></canvas>
+              </div>
 
-        <!-- Legend bawah -->
-         <div class="flex justify-center gap-6 text-xs text-gray-600 mt-4">
-          <div class="flex items-center gap-1">
+      <!-- Legend bawah -->
+        <div class="flex justify-center gap-6 text-xs text-gray-600 mt-4">
+          <div class="flex items-center gap-1 mb-3">
             <span
               class="w-2 h-2 rounded-full"
-              style="background-color: #7fe9de"
-            ></span>
+              style="background-color: #7fe9de"> 
+            </span>
             <span>Studi</span>
           </div>
-          <div class="flex items-center gap-1">
+          <div class="flex items-center gap-1 mb-3">
             <span
               class="w-2 h-2 rounded-full"
-              style="background-color: #49b3a6"
-            ></span>
+              style="background-color: #49b3a6">
+            </span>
             <span>Pribadi</span>
           </div>
-          <div class="flex items-center gap-1">
+          <div class="flex items-center gap-1 mb-3">
             <span
               class="w-2 h-2 rounded-full"
-              style="background-color: #276e63"
-            ></span>
+              style="background-color: #276e63">
+            </span>
             <span>Kontrak habis</span>
           </div>
         </div>
       </div>
 
-    <!-- 4 -->
-       
-     <div class="card bg-white shadow p-4 col-span-3 row-span-2 col-start-4 row-start-2 flex flex-col justify-between rounded-xl">
-        <h2 class="text-[#2D7263] text-base font-bold mb-2">Sumber Rekrutmen</h2>
-        <div class="flex justify-center items-center h-44">
-          <canvas id="sumberRekrutmenChart"></canvas>
-        </div>
 
-        <!-- Legend bawah -->
-          <div class="flex justify-center gap-6 text-xs text-gray-600 mt-4">
-          <div class="flex items-center gap-1">
+    <!-- 4 -->
+        <div class="card bg-white shadow p-4 col-span-3 row-span-2 col-start-4 row-start-2 flex flex-col justify-between rounded-xl">
+             <h2 class="text-[#2D7263] text-base font-bold mb-2">Sumber Rekrutmen</h2>
+              <div class="flex justify-center items-center h-44">
+                <canvas id="sumberRekrutmenChart"></canvas>
+              </div>
+
+       <!-- Legend bawah -->
+        <div class="flex justify-center gap-6 text-xs text-gray-600 mt-4">
+          <div class="flex items-center gap-1 mb-3">
             <span
               class="w-2 h-2 rounded-full"
-              style="background-color: #7fe9de"
-            ></span>
+              style="background-color: #7fe9de">
+            </span>
             <span>Internal</span>
           </div>
-          <div class="flex items-center gap-1">
+          <div class="flex items-center gap-1 mb-3">
             <span
               class="w-2 h-2 rounded-full"
-              style="background-color: #49b3a6"
-            ></span>
+              style="background-color: #49b3a6">
+            </span>
             <span>Job Portal</span>
           </div>
-          <div class="flex items-center gap-1">
+          <div class="flex items-center gap-1 mb-3">
             <span
               class="w-2 h-2 rounded-full"
-              style="background-color: #276e63"
-            ></span>
+              style="background-color: #276e63">
+            </span>
             <span>Kampus</span>
           </div>
         </div>
       </div>
+    
 
     <!-- 5 -->
+     <div class="card bg-white shadow p-4 col-span-6 row-span-3 col-start-7 row-start-1 rounded-xl">
+        <h2 class="text-[#2D7263] text-base font-bold mb-4">
+          Pegawai Baru dan Resign
+        </h2>
 
-     <div class="card bg-white shadow p-4 col-span-6 row-span-3 col-start-7 row-start-1">
-      <h2 class="text-[#2D7263] text-base font-bold mb-4 ">Pegawai Baru dan Resign</h2> 
+        <!-- Container Grafik -->
+        <div class="bg-white p-6">
+          <canvas id="pegawaiChart" height="270"></canvas>
+
+          <!-- Ringkasan di bawah chart -->
+          <div class="flex justify-center gap-10 mt-6 text-gray-600 text-xs relative">
+            <!-- Total Masuk -->
+            <div
+              class="relative flex flex-col items-center bg-[#E2F4F0] px-6 py-3 rounded-lg">
+              <span>Total Masuk (6 bln)</span>
+              <span class="text-[#2D7263] font-semibold text-base mt-1">12</span>
+            </div>
+
+            <!-- Total Resign -->
+            <div class="relative flex flex-col items-center bg-[#E9F6F3] px-6 py-3 rounded-lg">
+              <span>Total Resign (6 bln)</span>
+              <span class="text-[#E87171] font-semibold text-base mt-1">6</span>
+            </div>
+
+            <!-- Tingkat Retensi -->
+            <div class="relative flex flex-col items-center bg-[#E2F4F0] px-6 py-3 rounded-lg">
+              <span>Tingkat Retensi (perkiraan)</span>
+              <span class="text-[#2D7263] font-semibold text-base mt-1">-91%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+     <!-- <div class="card bg-white shadow p-4 col-span-6 row-span-3 col-start-7 row-start-1">
+      <h2 class="text-[#2D7263] text-base font-bold mb-4 ">Pegawai Baru dan Resign</h2>  -->
 
     <!-- Container Grafik -->
-     <div class="bg-white  p-6">
-      <canvas id="pegawaiChart" height="270"></canvas> 
+     <!-- <div class="bg-white  p-6">
+      <canvas id="pegawaiChart" height="270"></canvas>  -->
 
       <!-- Ringkasan di bawah chart -->
-       <div class="flex justify-center gap-10 mt-4 text-gray-600 text-xs relative">
+       <!-- <div class="flex justify-center gap-10 mt-4 text-gray-600 text-xs relative"> -->
       <!-- Total Masuk -->
-         <div class="relative flex flex-col items-center">
+         <!-- <div class="relative flex flex-col items-center">
           <span>Total Masuk (6 bln)</span>
           <span class="absolute top-5 text-indigo-500 font-semibold text-base">12</span>
-        </div> 
+        </div>  -->
 
        <!-- Total Resign -->
-        <div class="relative flex flex-col items-center">
+        <!-- <div class="relative flex flex-col items-center">
           <span>Total Resign (6 bln)</span>
           <span class="absolute top-5 text-red-500 font-semibold text-base">6</span>
-        </div>
+        </div> -->
 
        <!-- Tingkat Retensi -->
-         <div class="relative flex flex-col items-center">
+         <!-- <div class="relative flex flex-col items-center">
            <span>Tingkat Retensi</span>
-           <span class="absolute top-5 text-emerald-500 font-semibold text-base">~91%</span>
+           <span class="absolute top-5 text-emerald-500 font-semibold text-base">-91%</span>
          </div>
       </div>
     </div>
-  </div> 
+  </div>  -->
       
 
     <!-- 6 -->
-    <div class="card bg-white shadow p-4 col-span-6 row-span-2 col-start-1 row-start-4">
+     
+     <div class="card bg-white shadow p-4 col-span-6 row-span-2 col-start-1 row-start-4">
       <div class="bg-white ">
          <h2 class="text-[#2D7263] text-base font-bold mb-4">Cohort Analysis (sederhana)</h2>
 
