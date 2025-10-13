@@ -365,118 +365,207 @@ if (produktivitas) {
 
 
 // Chart Kinerja
-const kinerja = document.getElementById('kinerChart');
-if (kinerja) {
-  new Chart(kinerja, { 
-     type: 'line',
+const kinerjactx = document.getElementById("kinerChart");
+
+    new Chart(kinerjactx, {
+      type: "radar",
       data: {
-        labels: ['2021', '2022', '2023', '2024', '2025'],
+        labels: ["IT", "UI/UX Design", "QA", "SA", "CS", "HR"],
         datasets: [
           {
-            label: 'HR',
-            data: [80, 85, 82, 88, 90],
-            borderColor: '#57CCB1',
-            backgroundColor: 'rgba(87, 204, 177, 0.1)',
-            tension: 0.4,
-            fill: true
+            label: "Kinerja",
+            data: [90, 80, 85, 70, 88, 75],
+            fill: true,
+            backgroundColor: "rgba(87, 204, 177, 0.25)",
+            borderColor: "rgba(87, 204, 177, 1)",
+            pointBackgroundColor: "rgba(87, 204, 177, 1)",
+            pointBorderColor: "#fff",
+            pointHoverBackgroundColor: "#fff",
+            pointHoverBorderColor: "rgba(87, 204, 177, 1)",
           },
-          {
-            label: 'CS',
-            data: [75, 82, 78, 85, 88],
-            borderColor: '#2E7363',
-            backgroundColor: 'rgba(46, 115, 99, 0.1)',
-            tension: 0.4,
-            fill: true
-          },
-          {
-            label: 'QA',
-            data: [85, 88, 84, 90, 92],
-            borderColor: '#3dd6bb',
-            backgroundColor: 'rgba(61, 214, 187, 0.1)',
-            tension: 0.4,
-            fill: true
-          },
-          {
-            label: 'SA',
-            data: [78, 80, 76, 82, 85],
-            borderColor: '#217c6a',
-            backgroundColor: 'rgba(33, 124, 106, 0.1)',
-            tension: 0.4,
-            fill: true
-          }
-        ]
+        ],
       },
       options: {
         responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: {
-            position: 'top',
-          },
-          tooltip: {
-            mode: 'index',
-            intersect: false
-          }
-        },
+        maintainAspectRatio: false, // biar chart bisa fleksibel sesuai container
+        plugins: { legend: { display: false } },
         scales: {
-          y: {
-            min: 70,
-            max: 100,
-            ticks: {
-              callback: function(value) {
-                return value + '%';
-              }
-            }
-          }
-        }
-      }
-   });
-}
-  
+          r: {
+            angleLines: { color: "#e5e7eb" },
+            grid: { color: "#e5e7eb" },
+            suggestedMin: 0,
+            suggestedMax: 100,
+            ticks: { stepSize: 20, backdropColor: "transparent" },
+            pointLabels: { color: "#374151", font: { size: 10 } },
+          },
+        },
+      },
+    });
 
-    // Chart Produktivitas
-    const produk = document.getElementById('produkChart');
-    if (produk) {
-      new Chart(produk, { 
-        type: 'bar',
+    const Lemburctx = document.getElementById('highlightLembur');
+    new Chart(Lemburctx, {
+      type: 'bar',
       data: {
-        labels: ['Finished', 'Handling', 'Behöps', 'Utbildnings', 'Installation'],
+        labels: ['Bagas', 'Toni', 'Rina', 'Agus'],
         datasets: [{
-          label: 'Produktivitas',
-          data: [80, 60, 45, 70, 85],
+          label: 'Jam Lembur',
+          data: [15.5, 12, 13.5, 11],
           backgroundColor: [
-            '#57CCB1',
-            '#3dd6bb',
-            '#2E7363',
-            '#217c6a',
-            '#A0BDB1'
+            '#2f7d6d',
+            '#a4f4c4',
+            '#3fc5aa',
+            '#b5d1c0'
           ],
-          borderWidth: 0,
-          borderRadius: 4
+          borderRadius: 8,
+          barThickness: 25,
         }]
       },
       options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: {
-            display: false
+        indexAxis: 'y',
+        scales: {
+          x: {
+            beginAtZero: true,
+            grid: { display: true },
+            ticks: { color: '#666' }
+          },
+          y: {
+            grid: { display: false },
+            ticks: { color: '#444' }
           }
         },
-        scales: {
-          y: {
-            beginAtZero: true,
-            max: 100,
-            ticks: {
-              callback: function(value) {
-                return value + '%';
-              }
-            }
-          }
-        }
+        plugins: {
+          legend: { display: false },
+        },
+        responsive: true,
+        maintainAspectRatio: false,
       }
-       });
+    });
+
+
+    // chard 
+    const ctxshift = document.getElementById("shiftChart").getContext("2d");
+
+new Chart(ctxshift, {
+  type: "doughnut",
+  data: {
+    datasets: [
+      {
+        data: [80, 20], // 80% efisiensi
+        backgroundColor: ["#57CCB1", "#E5E7EB"], // hijau muda + abu netral
+        borderWidth: 0,
+      },
+    ],
+  },
+  options: {
+    cutout: "75%", // membuat donut lebih tipis di tengah
+    plugins: {
+      legend: { display: false },
+      tooltip: { enabled: false },
+    },
+  },
+});
+
+
+    // Chart Produktivitas
+    const ctx = document.getElementById("produkChart").getContext("2d");
+
+new Chart(ctx, {
+  type: "line",
+  data: {
+    labels: [
+      "IT",
+      "HR",
+      "Finance",
+      "Marketing",
+      "Dev Ops",
+      "UI/UX Design",
+      "Mobile Dev",
+      "QA",
+      "SA",
+      "CS",
+    ],
+    datasets: [
+      {
+        label: "Presensi",
+        data: [60, 80, 65, 70, 75, 85, 90, 95, 100, 102],
+        fill: true,
+        backgroundColor: "rgba(45, 114, 99, 0.2)",
+        borderColor: "rgba(45, 114, 99, 1)",
+        tension: 0.4, // membuat garis halus (smooth curve)
+        pointRadius: 0, // hilangkan titik
+      },
+    ],
+  },
+  options: {
+  responsive: true,
+  maintainAspectRatio: false,
+  scales: {
+    y: {
+      beginAtZero: true,
+      grid: { color: "rgba(0,0,0,0.05)" },
+      ticks: { color: "#6b7280" },
+    },
+   x: {
+  grid: { display: false },
+  ticks: {
+    color: "#6b7280",
+    maxRotation: 0,
+    minRotation: 0,
+    autoSkip: false,   // 🔹 pastikan semua label ditampilkan
+    font: {
+      size: 12,        // 🔹 kecilkan sedikit agar muat
+    },
+  },
+},
+
+  },
+  plugins: {
+    legend: { display: false },
+  },
 }
+});
+//     const produk = document.getElementById('produkChart');
+//     if (produk) {
+//       new Chart(produk, { 
+//         type: 'bar',
+//       data: {
+//         labels: ['Finished', 'Handling', 'Behöps', 'Utbildnings', 'Installation'],
+//         datasets: [{
+//           label: 'Produktivitas',
+//           data: [80, 60, 45, 70, 85],
+//           backgroundColor: [
+//             '#57CCB1',
+//             '#3dd6bb',
+//             '#2E7363',
+//             '#217c6a',
+//             '#A0BDB1'
+//           ],
+//           borderWidth: 0,
+//           borderRadius: 4
+//         }]
+//       },
+//       options: {
+//         responsive: true,
+//         maintainAspectRatio: false,
+//         plugins: {
+//           legend: {
+//             display: false
+//           }
+//         },
+//         scales: {
+//           y: {
+//             beginAtZero: true,
+//             max: 100,
+//             ticks: {
+//               callback: function(value) {
+//                 return value + '%';
+//               }
+//             }
+//           }
+//         }
+//       }
+//        });
+// }
 });   
 function createMiniDonut(id, color, value) {
   new Chart(document.getElementById(id), {
@@ -509,3 +598,4 @@ createMiniDonut('chartIzin', '#14b8a6', 30);
 createMiniDonut('chartCuti', '#14b8a6', 25);
 createMiniDonut('chartPegawaiBaru', '#14b8a6', 15);
 createMiniDonut('chartKontrak', '#14b8a6', 40);
+

@@ -108,7 +108,7 @@
               </svg>
             </button>
             <!-- Popup Kalender -->
-            <div id="calendar-popup" class="hidden absolute left-1/2 -translate-x-1/2 mt-3 w-80 bg-white border border-gray-200 rounded-lg shadow-lg p-4 z-50">
+            <div id="calendar-popup" class="hidden absolute left-1/2 -translate-x-1/2 mt-95 w-80 bg-white border border-gray-200 rounded-lg shadow-lg p-4 z-50">
               <calendar-date id="cally-calendar" class="cally bg-base-100 border border-base-300 shadow-lg rounded-box">
                 <svg aria-label="Previous" class="fill-current size-4" slot="previous" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M15.75 19.5 8.25 12l7.5-7.5"></path></svg>
                 <svg aria-label="Next" class="fill-current size-4" slot="next" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="m8.25 4.5 7.5 7.5-7.5 7.5"></path></svg>
@@ -139,157 +139,176 @@
           </div>
         </div>
       </header>
-
+      <h1 class="text-xl font-bold mb-4 ml-5 mt-5 text-[#2E7363]">Laporan Kinerja & Lembur</h1>
       <!-- Main Content -->
-      <main class="grid grid-cols-12 grid-rows-12 gap-4 m-5">
-        <!-- <div class=" bg-white col-span-7 row-span-4 rounded-xl p-5"></div>
-        <div class=" bg-white col-span-5 row-span-4 col-start-8 rounded-xl p-5">2</div>
-        <div class=" bg-white col-span-4 row-span-7 row-start-5 rounded-xl p-5">3</div>
-        <div class=" bg-white col-span-4 row-span-4 col-start-5 row-start-5 rounded-xl p-5">4</div>
-              <div class=" bg-white col-span-4 row-span-4 col-start-9 row-start-5 rounded-xl p-5">5</div>
-              <div class=" bg-white col-span-8 row-span-3 col-start-5 row-start-9 rounded-xl p-5">6</div> -->
-              <!-- Highlight Kinerja -->
-              <div class="bg-white col-span-7 row-span-4 rounded-xl p-5 shadow-sm">
-                <h2 class="text-lg font-bold text-gray-800 mb-4">Highlight Kinerja</h2>
-                <div class="flex justify-between mb-6">
-                  <div class="flex space-x-4">
-                    <span class="text-sm font-medium text-gray-700">HR</span>
-                    <span class="text-sm font-medium text-gray-700">CS</span>
-                    <span class="text-sm font-medium text-gray-700">QA</span>
-                    <span class="text-sm font-medium text-gray-700">SA</span>
-                  </div>
-                  <span class="text-xs text-gray-500">UAKTEMPIP</span>
-                </div>
-                <div class="h-64">
-                  <canvas id="kinerChart"></canvas>
-                </div>
-              </div>
-            
+      <main class="grid grid-cols-12 auto-rows-min gap-x-4 gap-y-4 p-5">
+
+        <!-- Highlight Kinerja -->
+    <div class="bg-white col-span-8 row-span-3 rounded-xl p-5 shadow-sm >
+      <h2 class="text-lg font-bold text-gray-800 mb-4">Highlight Kinerja</h2>
+      <div class="flex flex-col md:flex-row justify-between gap-4">
+        <!-- Chart diperbesar -->
+        <div class="w-full md:w-[60%] h-[300px] flex justify-center items-center">
+          <canvas id="kinerChart" class="mb-[60px] "></canvas>
+        </div>
+
+        <!-- Table Data -->
+        <div class="w-full md:w-[80%] flex items-center">
+          <table class="table-auto w-full text-xs">
+            <tbody class="text-gray-700 w-full">
+              <tr class="border-b"><td class="py-2">2021</td><td class="text-right">80%</td></tr>
+              <tr class="border-b"><td class="py-2">2022</td><td class="text-right">96%</td></tr>
+              <tr class="border-b"><td class="py-2">2023</td><td class="text-right">86%</td></tr>
+              <tr class="border-b"><td class="py-2">2024</td><td class="text-right">88%</td></tr>
+              <tr class="border-b"><td class="py-2">2025</td><td class="text-right">93%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+       
+              
               <!-- Highlight Lembur -->
-              <div class="bg-white col-span-5 row-span-4 col-start-8 rounded-xl p-5 shadow-sm">
-                <h2 class="text-lg font-bold text-gray-800 mb-4">Highlight Lembur</h2>
-                <div class="grid grid-cols-2 gap-4">
-                  <div class="bg-[#F0F9FF] rounded-lg p-4">
-                    <div class="text-sm text-gray-600">Rana</div>
-                    <div class="text-xl font-bold text-[#57CCB1]">12 jam</div>
-                  </div>
-                  <div class="bg-[#F0F9FF] rounded-lg p-4">
-                    <div class="text-sm text-gray-600">Total</div>
-                    <div class="text-xl font-bold text-[#57CCB1]">48 jam</div>
-                  </div>
-                  <div class="bg-[#F0F9FF] rounded-lg p-4">
-                    <div class="text-sm text-gray-600">Rina</div>
-                    <div class="text-xl font-bold text-[#57CCB1]">15 jam</div>
-                  </div>
-                  <div class="bg-[#F0F9FF] rounded-lg p-4">
-                    <div class="text-sm text-gray-600">Jama</div>
-                    <div class="text-xl font-bold text-[#57CCB1]">9 jam</div>
-                  </div>
+               <!-- Kartu Highlight Lembur -->
+              <div class="bg-white col-span-4 row-span-3 col-start-9 rounded-xl p-5 shadow-sm h-[360px]">
+                <h2 class="text-lg font-semibold text-emerald-800 mb-10 ">4 Highlight Lembur</h2>
+                    <canvas id="highlightLembur" class="pb-[80px]"></canvas>
+              </div>
+
+             
+            
+         <!-- Statistik Karyawan -->
+         <div class="bg-white col-span-4 row-span-5 row-start-4 rounded-xl p-5 shadow-sm ">
+              <!-- Header -->
+              <div class="flex justify-between items-center mb-2">
+                <h2 class="text-lg font-bold text-gray-800">
+                  Produktivitas Shift
+                </h2>
+                <p class="text-sm text-gray-500">08:00 - 16:00</p>
+              </div>
+
+              <!-- Dropdown Shift -->
+                <div class="dropdown mb-4">
+                  <label tabindex="0" class="btn bg-transparent border-none shadow-none text-gray-600 text-base flex items-center gap-1 hover:bg-transparent">
+                    <span id="selected-shift">Pagi ☀️</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </label>
+                  <ul tabindex="0" class="dropdown-content menu bg-white rounded-lg shadow-md w-36 text-gray-700">
+                    <li><a onclick="setShift('Pagi ☀️')">Pagi ☀️</a></li>
+                    <li><a onclick="setShift('Siang 🌤️')">Siang 🌤️</a></li>
+                    <li><a onclick="setShift('Malam 🌙')">Malam 🌙</a></li>
+                  </ul>
                 </div>
-                <div class="mt-6">
-                  <h3 class="text-sm font-semibold text-gray-700 mb-2">Produktivitas Shift</h3>
-                  <div class="bg-[#F0F9FF] rounded-lg p-4">
-                    <div class="flex justify-between items-center">
-                      <span class="text-sm text-gray-600">08:00 - 16:00</span>
-                      <span class="text-sm font-medium text-[#57CCB1]">Pagi</span>
-                    </div>
-                    <div class="mt-2 bg-gray-200 rounded-full h-2">
-                      <div class="bg-[#57CCB1] h-2 rounded-full" style="width: 85%"></div>
-                    </div>
+
+              <!-- Donut Chart -->
+              <div class="flex justify-center items-center mb-6 mt-20">
+                <div class="relative w-48 h-48">
+                  <canvas id="shiftChart"></canvas>
+                  <div
+                    class="absolute inset-0 flex flex-col items-center justify-center">
+                    <p class="text-2xl font-bold text-gray-800">80%</p>
+                    <p class="text-sm text-gray-500">Efisiensi Shift</p>
                   </div>
                 </div>
               </div>
+
+        
+              <!-- Statistik Grid -->
+                 <div class="flex flex-col gap-2 text-sm text-[#2D7263] ">
+                 
+                        <div class="flex justify-between mt-5">
+                          <span>Karyawan Aktif</span>
+                          <span class="font-semibold text-teal-500">24</span>
+                        </div>
+                 
+                       <div class="flex justify-between mt-5">
+                         <span>Jam Efektif</span>
+                         <span class="font-semibold text-teal-500">5 jam</span>
+                       </div>
+                 
+                       <div class="flex justify-between mt-5">
+                         <span>Keterlambatan</span>
+                         <span class="font-semibold text-red-500">2 orang</span>
+                       </div>
+                 
+                       <div class="flex justify-between mt-5">
+                         <span>Rata - rata Hadir</span>
+                         <span class="font-semibold text-teal-500">96%</span>
+                       </div>
+                 
+                 </div>
+        </div>
+              
             
               <!-- Leaderboard Presensi -->
-              <div class="bg-white col-span-4 row-span-7 row-start-5 rounded-xl p-5 shadow-sm">
-                <h2 class="text-lg font-bold text-gray-800 mb-4">Leaderboard Presensi</h2>
+              <div class="bg-white col-span-4 row-span-2 col-start-5 row-start-4 rounded-xl p-5 shadow-sm ">
+                <h2 class="text-lg font-bold text-[#2D7263] mb-4">Leaderboard Presensi</h2>
                 <div class="space-y-4">
-                  <div class="flex items-center justify-between p-3 bg-[#F0F9FF] rounded-lg">
+                  <div class="flex items-center justify-between p-1 bg-[#2D7263] rounded-lg">
                     <div class="flex items-center">
-                      <div class="w-8 h-8 bg-[#57CCB1] rounded-full flex items-center justify-center text-white font-bold text-sm">A</div>
-                      <span class="ml-3 text-sm font-medium">Aqua</span>
+                      <div class="w-5 h-5  rounded-full flex items-center justify-center pl-2 text-white font-semibold text-xs">Agus</div>
                     </div>
-                    <span class="text-sm font-medium text-[#57CCB1]">07:57</span>
+                    <span class="text-xs font-medium text-white">07:57</span>
                   </div>
-                  <div class="flex items-center justify-between p-3 bg-[#F0F9FF] rounded-lg">
+
+                  <div class="flex items-center justify-between p-1 bg-[#53C1A5] rounded-lg">
                     <div class="flex items-center">
-                      <div class="w-8 h-8 bg-[#57CCB1] rounded-full flex items-center justify-center text-white font-bold text-sm">R</div>
-                      <span class="ml-3 text-sm font-medium">Rina</span>
+                      <div class="w-5 h-5  rounded-full flex items-center justify-center pl-2 text-white font-semibold text-xs">Rina</div>
                     </div>
-                    <span class="text-sm font-medium text-[#57CCB1]">07:57</span>
+                    <span class="text-xs font-medium text-white">07:57</span>
                   </div>
-                  <div class="flex items-center justify-between p-3 bg-[#F0F9FF] rounded-lg">
+
+                  <div class="flex items-center justify-between p-1 bg-[#B8F3DA] rounded-lg">
                     <div class="flex items-center">
-                      <div class="w-8 h-8 bg-[#57CCB1] rounded-full flex items-center justify-center text-white font-bold text-sm">T</div>
-                      <span class="ml-3 text-sm font-medium">Total</span>
+                      <div class="w-5 h-5  rounded-full flex items-center justify-center pl-2 text-white font-semibold text-xs">Tariq</div>
                     </div>
-                    <span class="text-sm font-medium text-[#57CCB1]">06:00</span>
+                    <span class="text-xs font-medium text-white">07:57</span>
                   </div>
-                  <div class="flex items-center justify-between p-3 bg-[#F0F9FF] rounded-lg">
+
+                  <div class="flex items-center justify-between p-1 bg-gray-200 rounded-lg">
                     <div class="flex items-center">
-                      <div class="w-8 h-8 bg-[#57CCB1] rounded-full flex items-center justify-center text-white font-bold text-sm">M</div>
-                      <span class="ml-3 text-sm font-medium">Mutasgim</span>
+                      <div class="w-5 h-5  rounded-full flex items-center justify-center pl-7 text-black font-semibold text-xs">Mutaqqim</div>
                     </div>
-                    <span class="text-sm font-medium text-[#57CCB1]">06:02</span>
+                    <span class="text-xs font-medium text-black">07:57</span>
                   </div>
-                </div>
-              </div>
-            
-              <!-- Statistik Karyawan -->
-              <div class="bg-white col-span-4 row-span-4 col-start-5 row-start-5 rounded-xl p-5 shadow-sm">
-                <h2 class="text-lg font-bold text-gray-800 mb-4">Statistik Karyawan</h2>
-                <div class="grid grid-cols-2 gap-4">
-                  <div class="bg-[#F0F9FF] rounded-lg p-4 text-center">
-                    <div class="text-2xl font-bold text-[#57CCB1]">24</div>
-                    <div class="text-xs text-gray-600 mt-1">Karyawan Aktif</div>
-                  </div>
-                  <div class="bg-[#F0F9FF] rounded-lg p-4 text-center">
-                    <div class="text-2xl font-bold text-[#57CCB1]">5 jam</div>
-                    <div class="text-xs text-gray-600 mt-1">Jam Efektif</div>
-                  </div>
-                  <div class="bg-[#F0F9FF] rounded-lg p-4 text-center">
-                    <div class="text-2xl font-bold text-[#57CCB1]">2</div>
-                    <div class="text-xs text-gray-600 mt-1">Keterlambatan</div>
-                  </div>
-                  <div class="bg-[#F0F9FF] rounded-lg p-4 text-center">
-                    <div class="text-2xl font-bold text-[#57CCB1]">96%</div>
-                    <div class="text-xs text-gray-600 mt-1">Rata-rata Hadir</div>
-                  </div>
+
                 </div>
               </div>
             
               <!-- Leaderboard Lembur -->
-              <div class="bg-white col-span-4 row-span-4 col-start-9 row-start-5 rounded-xl p-5 shadow-sm">
-                <h2 class="text-lg font-bold text-gray-800 mb-4">Leaderboard Lembur</h2>
+              <div class="bg-white col-span-4 row-span-2 col-start-9 row-start-4 rounded-xl p-5 shadow-sm ">
+                <h2 class="text-lg font-bold text-[#2D7263] mb-4">Leaderboard Lembur</h2>
                 <div class="overflow-x-auto">
                   <table class="min-w-full">
                     <thead>
-                      <tr class="text-xs text-gray-500">
+                      <tr class="text-sm text-[#53C1A5] font-semibold">
                         <th class="text-left pb-2">Pegawai</th>
-                        <th class="text-left pb-2">Divisi</th>
+                        <th class="text-left pb-2 pl-7">Divisi</th>
                         <th class="text-right pb-2">Jam</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr class="border-b border-gray-100">
-                        <td class="py-2 text-sm">Agaa</td>
-                        <td class="py-2 text-sm text-gray-500">Costumer service</td>
-                        <td class="py-2 text-sm text-right font-medium">12</td>
+                      <tr class="border-b border-gray-100 font-bold">
+                        <td class="py-2 text-xs text-gray-500">Agaa</td>
+                        <td class="py-2 text-xs text-gray-500 pl-7">Costumer service</td>
+                        <td class="py-2 text-xs text-right text-gray-500">12</td>
                       </tr>
-                      <tr class="border-b border-gray-100">
-                        <td class="py-2 text-sm">Rina</td>
-                        <td class="py-2 text-sm text-gray-500">Costumer service</td>
-                        <td class="py-2 text-sm text-right font-medium">15</td>
+                      <tr class="border-b border-gray-100 font-bold">
+                        <td class="py-2 text-xs text-gray-500">Rina</td>
+                        <td class="py-2 text-xs text-gray-500 pl-7">Costumer service</td>
+                        <td class="py-2 text-xs text-right text-gray-500">15</td>
                       </tr>
-                      <tr class="border-b border-gray-100">
-                        <td class="py-2 text-sm">Total</td>
-                        <td class="py-2 text-sm text-gray-500">Costumer service</td>
-                        <td class="py-2 text-sm text-right font-medium">10</td>
+                      <tr class="border-b border-gray-100 font-bold">
+                        <td class="py-2 text-xs text-gray-500">Total</td>
+                        <td class="py-2 text-xs text-gray-500 pl-7">Costumer service</td>
+                        <td class="py-2 text-xs text-right text-gray-500">10</td>
                       </tr>
-                      <tr>
-                        <td class="py-2 text-sm">Mutasgim</td>
-                        <td class="py-2 text-sm text-gray-500">Costumer service</td>
-                        <td class="py-2 text-sm text-right font-medium">8</td>
+                      <tr class="border-b border-gray-100 font-bold">
+                        <td class="py-2 text-xs text-gray-500">Mutasgim</td>
+                        <td class="py-2 text-xs text-gray-500 pl-7">Costumer service</td>
+                        <td class="py-2 text-xs text-right text-gray-500">8</td>
                       </tr>
                     </tbody>
                   </table>
@@ -297,12 +316,18 @@
               </div>
             
               <!-- Grafik Produktivitas -->
-              <div class="bg-white col-span-8 row-span-3 col-start-5 row-start-9 rounded-xl p-5 shadow-sm">
+               <div class="bg-white col-span-8 row-span-3 col-start-5 row-start-6 rounded-xl p-5 shadow-sm ">
+        <h2 class="text-lg font-bold text-gray-800 mb-4">Leaderboard Presensi</h2>
+        <div class="h-60">
+          <canvas id="produkChart"></canvas>
+        </div>
+      </div>
+              <!-- <div class="bg-white col-span-8 row-span-3 col-start-5 row-start-6 rounded-xl p-5 shadow-sm">
                 <h2 class="text-lg font-bold text-gray-800 mb-4">Grafik Produktivitas</h2>
                 <div class="h-48">
                   <canvas id="produkChart"></canvas>
                 </div>
-              </div>
+              </div> -->
             </main>
           </div>
         </div>
