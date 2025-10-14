@@ -1,5 +1,4 @@
-// === MENU ACTIVE HANDLER ===
-document.addEventListener("DOMContentLoaded", () => {
+// === MENU ACTIVE HANDLER ==
   const currentPage = window.location.pathname.split("/").pop();
 
   // Ambil semua elemen menu di sidebar
@@ -29,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   });
-});
+
 
 document.addEventListener("DOMContentLoaded", () => {
 lucide.createIcons();
