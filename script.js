@@ -1,3 +1,37 @@
+// === MENU ACTIVE HANDLER ===
+document.addEventListener("DOMContentLoaded", () => {
+  const currentPage = window.location.pathname.split("/").pop();
+
+  // Ambil semua elemen menu di sidebar
+  const menuLinks = document.querySelectorAll("aside ul.menu a");
+
+  menuLinks.forEach(link => {
+    const linkPage = link.getAttribute("href");
+
+    // Hapus semua warna sebelumnya (biar ga bentrok)
+    link.classList.remove("bg-[#D5F2EB]", "text-[#57CCB1]", "text-[#737374]");
+    link.classList.add("text-[#737374]"); // default
+
+    // Kalau link sesuai halaman aktif
+    if (linkPage === currentPage) {
+      link.classList.add("bg-[#D5F2EB]", "text-[#57CCB1]");
+      link.classList.remove("text-[#737374]");
+    }
+
+    // Ganti juga warna ikon di dalamnya biar seragam
+    const icon = link.querySelector("i");
+    if (icon) {
+      icon.classList.remove("text-[#57CCB1]");
+      if (linkPage === currentPage) {
+        icon.classList.add("text-[#57CCB1]");
+      } else {
+        icon.classList.add("text-[#737374]");
+      }
+    }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
 lucide.createIcons();
 
 const calendarBtn = document.getElementById('calendar-btn');
@@ -38,5 +72,4 @@ const notifBtn = document.getElementById('notif-btn');
     }
   });
 
-
-
+});
