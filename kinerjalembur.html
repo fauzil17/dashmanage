@@ -336,4 +336,166 @@
   </div>
 </body>
 <script src="script.js"></script>
+<script>
+  // Chart Kinerja
+const kinerjactx = document.getElementById("kinerChart");
+
+    new Chart(kinerjactx, {
+      type: "radar",
+      data: {
+        labels: ["IT", "UI/UX Design", "QA", "SA", "CS", "HR"],
+        datasets: [
+          {
+            label: "Kinerja",
+            data: [90, 80, 85, 70, 88, 75],
+            fill: true,
+            backgroundColor: "rgba(87, 204, 177, 0.25)",
+            borderColor: "rgba(87, 204, 177, 1)",
+            pointBackgroundColor: "rgba(87, 204, 177, 1)",
+            pointBorderColor: "#fff",
+            pointHoverBackgroundColor: "#fff",
+            pointHoverBorderColor: "rgba(87, 204, 177, 1)",
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false, // biar chart bisa fleksibel sesuai container
+        plugins: { legend: { display: false } },
+        scales: {
+          r: {
+            angleLines: { color: "#e5e7eb" },
+            grid: { color: "#e5e7eb" },
+            suggestedMin: 0,
+            suggestedMax: 100,
+            ticks: { stepSize: 20, backdropColor: "transparent" },
+            pointLabels: { color: "#374151", font: { size: 10 } },
+          },
+        },
+      },
+    });
+
+    const Lemburctx = document.getElementById('highlightLembur');
+    new Chart(Lemburctx, {
+      type: 'bar',
+      data: {
+        labels: ['Bagas', 'Toni', 'Rina', 'Agus'],
+        datasets: [{
+          label: 'Jam Lembur',
+          data: [15.5, 12, 13.5, 11],
+          backgroundColor: [
+            '#2f7d6d',
+            '#a4f4c4',
+            '#3fc5aa',
+            '#b5d1c0'
+          ],
+          borderRadius: 8,
+          barThickness: 25,
+        }]
+      },
+      options: {
+        indexAxis: 'y',
+        scales: {
+          x: {
+            beginAtZero: true,
+            grid: { display: true },
+            ticks: { color: '#666' }
+          },
+          y: {
+            grid: { display: false },
+            ticks: { color: '#444' }
+          }
+        },
+        plugins: {
+          legend: { display: false },
+        },
+        responsive: true,
+        maintainAspectRatio: false,
+      }
+    });
+
+
+    // chard 
+    const ctxshift = document.getElementById("shiftChart").getContext("2d");
+
+new Chart(ctxshift, {
+  type: "doughnut",
+  data: {
+    datasets: [
+      {
+        data: [80, 20], // 80% efisiensi
+        backgroundColor: ["#57CCB1", "#E5E7EB"], // hijau muda + abu netral
+        borderWidth: 0,
+      },
+    ],
+  },
+  options: {
+    cutout: "75%", // membuat donut lebih tipis di tengah
+    plugins: {
+      legend: { display: false },
+      tooltip: { enabled: false },
+    },
+  },
+});
+
+
+    // Chart Produktivitas
+    const ctx = document.getElementById("produkChart").getContext("2d");
+
+new Chart(ctx, {
+  type: "line",
+  data: {
+    labels: [
+      "IT",
+      "HR",
+      "Finance",
+      "Marketing",
+      "Dev Ops",
+      "UI/UX Design",
+      "Mobile Dev",
+      "QA",
+      "SA",
+      "CS",
+    ],
+    datasets: [
+      {
+        label: "Presensi",
+        data: [60, 80, 65, 70, 75, 85, 90, 95, 100, 102],
+        fill: true,
+        backgroundColor: "rgba(45, 114, 99, 0.2)",
+        borderColor: "rgba(45, 114, 99, 1)",
+        tension: 0.4, // membuat garis halus (smooth curve)
+        pointRadius: 0, // hilangkan titik
+      },
+    ],
+  },
+  options: {
+  responsive: true,
+  maintainAspectRatio: false,
+  scales: {
+    y: {
+      beginAtZero: true,
+      grid: { color: "rgba(0,0,0,0.05)" },
+      ticks: { color: "#6b7280" },
+    },
+   x: {
+  grid: { display: false },
+  ticks: {
+    color: "#6b7280",
+    maxRotation: 0,
+    minRotation: 0,
+    autoSkip: false,   // 🔹 pastikan semua label ditampilkan
+    font: {
+      size: 12,        // 🔹 kecilkan sedikit agar muat
+    },
+  },
+},
+
+  },
+  plugins: {
+    legend: { display: false },
+  },
+}
+});
+</script>
 </html>
